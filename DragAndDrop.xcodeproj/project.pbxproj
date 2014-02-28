@@ -21,6 +21,13 @@
 		A5B057BA18B8994D00474179 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5B0579C18B8994D00474179 /* UIKit.framework */; };
 		A5B057C218B8994D00474179 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5B057C018B8994D00474179 /* InfoPlist.strings */; };
 		A5B057C418B8994D00474179 /* DragAndDropTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5B057C318B8994D00474179 /* DragAndDropTests.m */; };
+		A5BC4A4B18B9327800D34A7F /* TTBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = A5BC4A4A18B9327800D34A7F /* TTBoard.m */; };
+		A5BC4A5018B9396700D34A7F /* black_checkers.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC4A4C18B9396700D34A7F /* black_checkers.png */; };
+		A5BC4A5118B9396700D34A7F /* brown_checkers.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC4A4D18B9396700D34A7F /* brown_checkers.png */; };
+		A5BC4A5218B9396700D34A7F /* red_checkers.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC4A4E18B9396700D34A7F /* red_checkers.png */; };
+		A5BC4A5318B9396700D34A7F /* yellow_checkers.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC4A4F18B9396700D34A7F /* yellow_checkers.png */; };
+		A5BC4A5518B93A9A00D34A7F /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC4A5418B93A9A00D34A7F /* black.png */; };
+		A5BC4A5718B93A9F00D34A7F /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = A5BC4A5618B93A9F00D34A7F /* white.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +60,14 @@
 		A5B057BF18B8994D00474179 /* DragAndDropTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DragAndDropTests-Info.plist"; sourceTree = "<group>"; };
 		A5B057C118B8994D00474179 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5B057C318B8994D00474179 /* DragAndDropTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragAndDropTests.m; sourceTree = "<group>"; };
+		A5BC4A4918B9327800D34A7F /* TTBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTBoard.h; sourceTree = "<group>"; };
+		A5BC4A4A18B9327800D34A7F /* TTBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTBoard.m; sourceTree = "<group>"; };
+		A5BC4A4C18B9396700D34A7F /* black_checkers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_checkers.png; sourceTree = "<group>"; };
+		A5BC4A4D18B9396700D34A7F /* brown_checkers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brown_checkers.png; sourceTree = "<group>"; };
+		A5BC4A4E18B9396700D34A7F /* red_checkers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_checkers.png; sourceTree = "<group>"; };
+		A5BC4A4F18B9396700D34A7F /* yellow_checkers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_checkers.png; sourceTree = "<group>"; };
+		A5BC4A5418B93A9A00D34A7F /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black.png; sourceTree = "<group>"; };
+		A5BC4A5618B93A9F00D34A7F /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +132,14 @@
 				A5B057AA18B8994D00474179 /* Main.storyboard */,
 				A5B057AD18B8994D00474179 /* TTViewController.h */,
 				A5B057AE18B8994D00474179 /* TTViewController.m */,
+				A5BC4A4918B9327800D34A7F /* TTBoard.h */,
+				A5BC4A4A18B9327800D34A7F /* TTBoard.m */,
+				A5BC4A4C18B9396700D34A7F /* black_checkers.png */,
+				A5BC4A4D18B9396700D34A7F /* brown_checkers.png */,
+				A5BC4A4E18B9396700D34A7F /* red_checkers.png */,
+				A5BC4A4F18B9396700D34A7F /* yellow_checkers.png */,
+				A5BC4A5418B93A9A00D34A7F /* black.png */,
+				A5BC4A5618B93A9F00D34A7F /* white.png */,
 				A5B057B018B8994D00474179 /* Images.xcassets */,
 				A5B0579F18B8994D00474179 /* Supporting Files */,
 			);
@@ -229,9 +252,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BC4A5118B9396700D34A7F /* brown_checkers.png in Resources */,
+				A5BC4A5518B93A9A00D34A7F /* black.png in Resources */,
+				A5BC4A5718B93A9F00D34A7F /* white.png in Resources */,
 				A5B057B118B8994D00474179 /* Images.xcassets in Resources */,
+				A5BC4A5018B9396700D34A7F /* black_checkers.png in Resources */,
 				A5B057A318B8994D00474179 /* InfoPlist.strings in Resources */,
+				A5BC4A5318B9396700D34A7F /* yellow_checkers.png in Resources */,
 				A5B057AC18B8994D00474179 /* Main.storyboard in Resources */,
+				A5BC4A5218B9396700D34A7F /* red_checkers.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5BC4A4B18B9327800D34A7F /* TTBoard.m in Sources */,
 				A5B057A918B8994D00474179 /* TTAppDelegate.m in Sources */,
 				A5B057A518B8994D00474179 /* main.m in Sources */,
 				A5B057AF18B8994D00474179 /* TTViewController.m in Sources */,
@@ -463,6 +493,7 @@
 				A5B057C918B8994D00474179 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5B057CA18B8994D00474179 /* Build configuration list for PBXNativeTarget "DragAndDropTests" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +502,7 @@
 				A5B057CC18B8994D00474179 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
