@@ -122,12 +122,14 @@
         }
         
     }];
+
+    CGPoint point = CGPointMake(CGRectGetMidX([[sortedArray objectAtIndex:0] CGRectValue]), CGRectGetMidY([[sortedArray objectAtIndex:0] CGRectValue]));
     
     BOOL isEmpty = YES;
     
     for (UIImageView *view in self.boardChekers.checkersArray) {
         
-        if (![view isEqual:self.dragView] && CGRectContainsPoint(view.frame, pointViewBoard) && view.tag != 0) {
+        if (![view isEqual:self.dragView] && CGRectContainsPoint(view.frame, point) && view.tag != 0) {
             [UIView animateWithDuration:0.3
                              animations:^{
                                  self.dragView.transform = CGAffineTransformIdentity;
@@ -144,7 +146,7 @@
                          animations:^{
                              self.dragView.transform = CGAffineTransformIdentity;
                              self.dragView.alpha = 1.f;
-                             self.dragView.center = CGPointMake(CGRectGetMidX([[sortedArray objectAtIndex:0] CGRectValue]), CGRectGetMidY([[sortedArray objectAtIndex:0] CGRectValue]));
+                             self.dragView.center = point;
                          }];
     }
     
