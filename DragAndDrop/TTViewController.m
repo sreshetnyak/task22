@@ -14,6 +14,7 @@
 @property (weak,nonatomic) TTBoard *boardChekers;
 @property (weak, nonatomic) UIView* dragView;
 @property (assign, nonatomic) CGPoint touchOffset;
+@property (assign,nonatomic) CGRect originalPoint;
 
 @end
 
@@ -37,7 +38,6 @@
     TTBoard  *board = [[TTBoard alloc]initBoardWithSize:CGRectMake(0, 128, 768, 768) numberOfCells:8];
     
     self.boardChekers = board;
-    
     if (board) {
         [self.view addSubview:board];
     }
@@ -49,11 +49,12 @@
     
     CGPoint pointViewBoard = [touch locationInView:self.boardChekers];
     
-    UIView* view = [self.boardChekers hitTest:pointViewBoard withEvent:event];
+    UIView* view = (UIImageView *)[self.boardChekers hitTest:pointViewBoard withEvent:event];
     
-    if (![view isEqual:self.boardChekers] && view.tag != 2) {
+    if (![view isEqual:self.boardChekers] && view.tag != 2 && view.tag != 1) {
         
         self.dragView = view;
+        self.originalPoint = view.frame;
         
         [self.boardChekers bringSubviewToFront:self.dragView];
         
@@ -98,8 +99,7 @@
     
 }
 
-- (void) onTouchesEnded:(NSSet *)touch withEvent:(UIEvent *)event{
-    
+- (void) onTouchesEnded:(NSSet *)touch withEvent:(UIEvent *)event {
     
     UITouch* touches = [touch anyObject];
     
@@ -123,20 +123,35 @@
         
     }];
     
-//    if (CGRectIntersectsRect(item1frame, item2frame))
-//    {
-//        
-//    }
+    BOOL isEmpty = YES;
     
-    [UIView animateWithDuration:0.3
-                     animations:^{
-                         self.dragView.transform = CGAffineTransformIdentity;
-                         self.dragView.alpha = 1.f;
-                         self.dragView.center = CGPointMake(CGRectGetMidX([[sortedArray objectAtIndex:0] CGRectValue]), CGRectGetMidY([[sortedArray objectAtIndex:0] CGRectValue]));
-                     }];
+    for (UIImageView *view in self.boardChekers.checkersArray) {
+        
+        if (![view isEqual:self.dragView] && CGRectContainsPoint(view.frame, pointViewBoard) && view.tag != 0) {
+            [UIView animateWithDuration:0.3
+                             animations:^{
+                                 self.dragView.transform = CGAffineTransformIdentity;
+                                 self.dragView.alpha = 1.f;
+                                 self.dragView.frame = self.originalPoint;
+                             }];
+            isEmpty = NO;
+            break;
+        }
+    }
+    
+    if (isEmpty) {
+        [UIView animateWithDuration:0.3
+                         animations:^{
+                             self.dragView.transform = CGAffineTransformIdentity;
+                             self.dragView.alpha = 1.f;
+                             self.dragView.center = CGPointMake(CGRectGetMidX([[sortedArray objectAtIndex:0] CGRectValue]), CGRectGetMidY([[sortedArray objectAtIndex:0] CGRectValue]));
+                         }];
+    }
     
     self.dragView = nil;
 }
+
+
 
 - (CGFloat)lengthWithRect:(CGRect)rect point:(CGPoint)point {
 

@@ -12,6 +12,7 @@
 
 @property (assign,nonatomic) CGSize boardSize;
 @property (strong,nonatomic) NSMutableArray *pointArray;
+@property (nonatomic,strong) NSMutableArray *checkersArray;
 
 - (UIView *)initBoardWithSize:(CGRect)rect numberOfCells:(NSUInteger)number;
 

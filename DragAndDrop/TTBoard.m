@@ -9,8 +9,6 @@
 #import "TTBoard.h"
 
 @interface TTBoard ()
-@property (nonatomic,strong) NSMutableArray *whiteCheckers;
-@property (nonatomic,strong) NSMutableArray *blackCheckers;
 
 @end
 
@@ -19,11 +17,11 @@
 - (UIView *)initBoardWithSize:(CGRect)rect numberOfCells:(NSUInteger)number {
 
     if (self = [super init]) {
+        
         self.pointArray = [[NSMutableArray alloc]init];
         self.boardSize = rect.size;
         
-        self.whiteCheckers = [[NSMutableArray alloc]init];
-        self.blackCheckers = [[NSMutableArray alloc]init];
+        self.checkersArray = [[NSMutableArray alloc]init];
         
         int width = rect.size.width/number;
         int height = rect.size.height/number;
@@ -33,41 +31,38 @@
             for (int j = 0; j < number; j++) {
                 UIImageView *viewImage = [[UIImageView alloc]init];
                 UIImageView *checkersImage = [[UIImageView alloc]init];
-                UIView *checkersView = [[UIView alloc]init];
-                UIView *view = [[UIView alloc]init];
+                
                 if (((i % 2) != 0 && (j % 2) == 0) | ((i % 2) == 0 && (j % 2) != 0)) {
-                    [view setTag:2];
                     [viewImage setImage:[UIImage imageNamed:@"black.png"]];
-                    
+                    [viewImage setTag:2];
                     if (j < 3) {
                         [checkersImage setImage:[UIImage imageNamed:@"black_checkers.png"]];
-                        [checkersView setTag:4];
-                        
-                        [self.blackCheckers addObject:checkersView];
+                        [checkersImage setTag:5];
                     }
                     if (j > 4) {
                         [checkersImage setImage:[UIImage imageNamed:@"yellow_checkers.png"]];
-                        [checkersView setTag:5];
-                        [self.whiteCheckers addObject:checkersView];
+                        [checkersImage setTag:5];
                     }
                     
                 } else {
-                    [view setTag:1];
                     [viewImage setImage:[UIImage imageNamed:@"white.png"]];
+                    [viewImage setTag:1];
                 }
-                view.frame = CGRectMake(i*width, j*height, width, height);
-                if (view.tag == 2) {
-                    [self.pointArray addObject:[NSValue valueWithCGRect:view.frame]];
-                }
-                viewImage.frame = CGRectMake(0, 0, width, height);
-                checkersView.frame = CGRectMake(i*width + deltaCheckers/2, j*height + deltaCheckers/2, width - deltaCheckers, height - deltaCheckers);
-                checkersImage.frame = CGRectMake(0, 0, width - deltaCheckers, height - deltaCheckers);
-                [checkersView addSubview:checkersImage];
-                [view addSubview:viewImage];
-                [self addSubview:view];
-                [self addSubview:checkersView];
+
+                viewImage.frame = CGRectMake(i*width, j*height, width, height);
+                
+                if (viewImage.tag == 2)[self.pointArray addObject:[NSValue valueWithCGRect:viewImage.frame]];
+                
+                [self.checkersArray addObject:checkersImage];
+                
+                checkersImage.frame = CGRectMake(i*width + deltaCheckers/2, j*height + deltaCheckers/2, width - deltaCheckers, height - deltaCheckers);
+                
+                viewImage.userInteractionEnabled = YES;
+                checkersImage.userInteractionEnabled = YES;
+                [self addSubview:viewImage];
+                [self addSubview:checkersImage];
             }
-        }
+        } 
         self.backgroundColor = [UIColor clearColor];
         self.frame = rect;
         self.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
